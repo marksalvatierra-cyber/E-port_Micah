@@ -15,7 +15,7 @@ export const DashboardLayout = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ParticleBackground />
-      {showSidebar && <Sidebar open={open} onClose={() => setOpen(false)} />}
+      <Sidebar open={open} onClose={() => setOpen(false)} />
 
       <div className={`${showSidebar ? "lg:pl-[17rem]" : ""} flex flex-col min-h-screen`}>
         <Header onMenuClick={() => setOpen(true)} />
