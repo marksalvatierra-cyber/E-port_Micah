@@ -135,6 +135,58 @@ export const company = {
   },
 };
 
+export type TOCItem = {
+  level: "main" | "chapter" | "section";
+  title: string;
+  items?: TOCItem[];
+};
+
+export const tableOfContents: TOCItem[] = [
+  { level: "main", title: "Title Page" },
+  { level: "main", title: "Table of Contents" },
+  { level: "main", title: "Acknowledgment" },
+  { level: "main", title: "Student Trainee Prayer" },
+  { level: "main", title: "Personal Philosophy" },
+  { level: "main", title: "Career Plan" },
+  {
+    level: "chapter",
+    title: "Chapter I: Introduction",
+    items: [
+      { level: "section", title: "A. Importance of Internship" },
+      { level: "section", title: "B. Objectives of Internship" },
+      { level: "section", title: "C. Time and Place" },
+    ],
+  },
+  {
+    level: "chapter",
+    title: "Chapter II: Company Profile",
+    items: [
+      { level: "section", title: "A. Nature of the Agency" },
+      { level: "section", title: "B. Mission/Vision/Goal Statement" },
+      { level: "section", title: "C. History/Background of the Agency/Office" },
+      { level: "section", title: "D. Organizational Structure" },
+    ],
+  },
+  {
+    level: "chapter",
+    title: "Chapter III: Work Experiences",
+    items: [
+      { level: "section", title: "A. Weekly Accomplishment Report" },
+      { level: "section", title: "B. Daily Time Record" },
+      { level: "section", title: "C. Internship Progress Report" },
+      { level: "section", title: "D. Internship Analysis Report" },
+    ],
+  },
+  {
+    level: "chapter",
+    title: "Chapter IV: Assessment of the Practicum Program",
+    items: [
+      { level: "section", title: "A. Student Internship Evaluation Form" },
+    ],
+  },
+  { level: "main", title: "Appendices" },
+];
+
 export type WeeklyReport = {
   week: number;
   period: string;
@@ -518,6 +570,18 @@ export const assessment = {
   ],
   remarks:
     "Demonstrated strong technical aptitude in Air Traffic Service operations and reliable performance in administrative support tasks. Recommended for continued professional development in aviation operations.",
+  numericRatings: {
+    SR: 285,
+    PR: 285,
+    SICR: 0,
+    ASR: 285,
+  },
+  signatories: {
+    student: { name: "Micah Mel R. Madriaga", date: "April 22, 2026" },
+    peer: { name: "Aylene Z. Villanueva", date: "April 22, 2026" },
+    coordinator: { name: "Marites D. Escultor, MSIT", date: "" },
+    supervisor: { name: "Delmer M. Palara", date: "April 22, 2026" },
+  },
 };
 
 export const reflections = {
@@ -560,9 +624,10 @@ export const appendices = [
   { code: "J", title: "Daily Time Record (Time Card)" },
   { code: "K", title: "Certificate of Completion" },
   { code: "L", title: "Certificate of Clearance" },
-  { code: "M", title: "Pictures during Pre-service Seminar" },
-  { code: "N", title: "Pictures during Office Works" },
-  { code: "O", title: "Code of Ethics for CAST Student Internship" },
-  { code: "P", title: "Curriculum Vitae" },
-  { code: "Q", title: "On-the-Job Training Portfolio Evaluation Form" },
+  { code: "M", title: "Pre-Service Seminar Pictures" },
+  { code: "N", title: "Pre-Service Seminar Pictures" },
+  { code: "O", title: "Office Works Pictures" },
+  { code: "P", title: "Code of Ethics for CAST Student Internship" },
+  { code: "Q", title: "Curriculum Vitae" },
+  { code: "R", title: "OJT Portfolio Evaluation Form" },
 ];

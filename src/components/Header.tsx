@@ -44,9 +44,11 @@ export const Header = ({ onMenuClick }: HeaderProps) => {
             <div className="text-xs font-semibold text-foreground">{profile.name.split(" ")[0]} {profile.name.split(" ").slice(-1)}</div>
             <div className="text-[11px] text-muted-foreground">{profile.yearSection} · BSIT</div>
           </div>
-          <div className="h-9 w-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold">
-            {profile.name.split(" ").map((s) => s[0]).slice(0, 2).join("")}
-          </div>
+          <img
+            src="/appendices/seminar-1.jpeg"
+            alt={profile.name}
+            className="h-9 w-9 rounded-full object-cover border border-primary"
+          />
         </div>
       </div>
     </header>

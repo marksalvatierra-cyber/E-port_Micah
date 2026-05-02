@@ -11,14 +11,15 @@ export const DashboardLayout = () => {
   const { pathname } = useLocation();
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
+  const showSidebar = pathname !== "/";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <AuroraBackground />
       <ParticleBackground />
-      <Sidebar open={open} onClose={() => setOpen(false)} />
+      {showSidebar && <Sidebar open={open} onClose={() => setOpen(false)} />}
 
-      <div className="lg:pl-[17rem] flex flex-col min-h-screen">
+      <div className={`${showSidebar ? "lg:pl-[17rem]" : ""} flex flex-col min-h-screen`}>
         <Header onMenuClick={() => setOpen(true)} />
 
         {/* Scroll progress bar */}
@@ -44,7 +45,7 @@ export const DashboardLayout = () => {
 
           <footer className="mx-auto w-full max-w-6xl mt-16 pt-6 border-t border-border text-xs text-muted-foreground flex flex-wrap items-center justify-between gap-2">
             <span>© {new Date().getFullYear()} OJT E-Portfolio · Civil Aviation Authority of the Philippines</span>
-            <span>Crafted with React + Vite</span>
+            <span>Micah Mel R. Madriaga</span>
           </footer>
         </main>
       </div>

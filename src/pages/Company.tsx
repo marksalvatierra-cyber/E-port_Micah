@@ -74,7 +74,7 @@ const Company = () => (
     <Card>
       <CardTitle eyebrow="E. Organizational Structure">Air Traffic Service · San Jose Airport</CardTitle>
       <div className="flex flex-col items-center gap-6">
-        <OrgNode {...company.org.head} highlight />
+        <OrgNode {...company.org.head} highlight logo={caapLogo} />
         <div className="h-6 w-px bg-border" />
         <div className="grid sm:grid-cols-3 gap-4 w-full">
           {company.org.team.map((m) => (
@@ -103,11 +103,13 @@ const OrgNode = ({
   role,
   title,
   highlight,
+  logo,
 }: {
   name: string;
   role: string;
   title: string;
   highlight?: boolean;
+  logo?: string;
 }) => (
   <div
     className={
@@ -117,6 +119,9 @@ const OrgNode = ({
         : "bg-surface border-border")
     }
   >
+    {logo && (
+      <img src={logo} alt="CAAP logo" className="mx-auto mb-3 h-12 w-12 object-contain bg-white rounded-md p-1" />
+    )}
     <div className={"text-[11px] uppercase tracking-wider mb-1 " + (highlight ? "opacity-75" : "text-muted-foreground")}>
       {title}
     </div>

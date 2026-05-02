@@ -47,39 +47,7 @@ const Introduction = () => (
         {introduction.timePlace.setting}
       </p>
     </Card>
-
-    <SectionHeader eyebrow="Reflective Pieces" title="Acknowledgment, prayer & philosophy" />
-
-    <div className="grid lg:grid-cols-2 gap-5 mb-10">
-      <Card>
-        <CardTitle>Acknowledgment</CardTitle>
-        <div className="space-y-3 text-sm text-foreground/85 leading-relaxed">
-          {acknowledgment.map((p, i) => <p key={i}>{p}</p>)}
-        </div>
-      </Card>
-
-      <Card>
-        <CardTitle>Student Trainee Prayer</CardTitle>
-        <div className="space-y-2.5 text-sm text-foreground/80 italic leading-relaxed font-serif text-[15px]">
-          {introduction.prayer.map((p, i) => <p key={i}>{p}</p>)}
-        </div>
-      </Card>
-    </div>
-
-    <Card className="mb-10">
-      <CardTitle>Personal Philosophy</CardTitle>
-      <div className="space-y-3 text-sm text-foreground/85 leading-relaxed">
-        {personalPhilosophy.map((p, i) => <p key={i}>{p}</p>)}
-      </div>
-    </Card>
-
-    <SectionHeader title="Career Plan" />
-    <div className="grid sm:grid-cols-2 gap-5">
-      <PlanCard title="Immediate Goals" items={careerPlan.immediate} />
-      <PlanCard title="Skill Development Focus" items={careerPlan.skills} />
-      <PlanCard title="Long-term Vision" items={careerPlan.longTerm} />
-      <PlanCard title="Personal Commitment" items={careerPlan.commitment} />
-    </div>
+    
   </>
 );
 

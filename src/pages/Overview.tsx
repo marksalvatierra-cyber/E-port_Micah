@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Award, Clock, MapPin, Plane, Sparkles } from "lucide-react";
@@ -21,44 +22,53 @@ const Overview = () => {
     <>
       {/* HERO */}
       <section className="relative mb-14">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/70 backdrop-blur px-3 py-1 text-[11px] font-medium text-muted-foreground">
-            <Sparkles className="h-3 w-3" />
-            <span className="uppercase tracking-[0.14em]">OJT E-Portfolio · 2026</span>
-          </div>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/70 backdrop-blur px-3 py-1 text-[11px] font-medium text-muted-foreground">
+              <Sparkles className="h-3 w-3" />
+              <span className="uppercase tracking-[0.14em]">OJT E-Portfolio · 2026</span>
+            </div>
 
-          <h1 className="mt-5 font-serif text-display text-5xl sm:text-6xl lg:text-7xl leading-[0.98] tracking-tight">
-            {profile.name.split(" ").slice(0, -1).join(" ")}
-            <br />
-            <span className="italic font-normal">{profile.name.split(" ").slice(-1)}</span>
-          </h1>
+            <h1 className="mt-5 font-serif text-display text-4xl sm:text-5xl lg:text-6xl leading-normal tracking-tight">
+              {profile.name}
+            </h1>
 
-          <p className="mt-6 max-w-2xl text-[15px] sm:text-base text-muted-foreground leading-relaxed">
-            {profile.course}, {profile.yearSection}. A documented internship at the{" "}
-            <span className="text-foreground font-medium">{profile.unit}</span> — from {profile.period}.
-          </p>
+            <p className="mt-6 max-w-2xl text-[15px] sm:text-base text-muted-foreground leading-relaxed">
+              {profile.course}, {profile.yearSection}. A documented internship at the{" "}
+              <span className="text-foreground font-medium">{profile.unit}</span> — from {profile.period}.
+            </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              to="/introduction"
-              className="group inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-4 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity"
-            >
-              Begin reading
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
-            <Link
-              to="/weekly"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-card/70 backdrop-blur px-4 py-2.5 text-sm font-medium text-foreground hover:bg-card transition-colors"
-            >
-              View weekly reports
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </motion.div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/title"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-4 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity"
+              >
+                Begin reading
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <Link
+                to="/weekly"
+                className="inline-flex items-center gap-2 rounded-md border border-border bg-card/70 backdrop-blur px-4 py-2.5 text-sm font-medium text-foreground hover:bg-card transition-colors"
+              >
+                View weekly reports
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
+            className="hidden lg:block"
+          >
+            <AnimatedCode />
+          </motion.div>
+        </div>
       </section>
 
       {/* HERO META */}
@@ -137,6 +147,92 @@ const Overview = () => {
         ))}
       </StaggerGroup>
     </>
+  );
+};
+
+const AnimatedCode = () => {
+  const codeLines = [
+    "// OJT Portfolio 2026",
+    "const intern = {",
+    "  name: \"Your Name\",",
+    "  period: \"Jan - May 2026\",",
+    "  company: \"CAAP\",",
+    "  status: \"Learning\",",
+    "  skills: [\"Communication\", \"ATC\"]",
+    "};"
+  ];
+
+  const [displayedText, setDisplayedText] = useState("");
+  const [lineIndex, setLineIndex] = useState(0);
+
+  useEffect(() => {
+    if (lineIndex >= codeLines.length) return;
+
+    const currentLine = codeLines[lineIndex];
+    let charIndex = 0;
+
+    const interval = setInterval(() => {
+      if (charIndex <= currentLine.length) {
+        setDisplayedText((prev) => {
+          const lines = prev.split("\n");
+          lines[lineIndex] = currentLine.substring(0, charIndex);
+          return lines.join("\n");
+        });
+        charIndex++;
+      } else {
+        clearInterval(interval);
+        setLineIndex((prev) => prev + 1);
+        setDisplayedText((prev) => prev + "\n");
+      }
+    }, 30);
+
+    return () => clearInterval(interval);
+  }, [lineIndex]);
+
+  return (
+    <div className="relative mx-auto w-full max-w-4xl">
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -inset-3 rounded-2xl bg-primary/10 blur-2xl"
+      />
+
+      <div className="relative overflow-hidden rounded-2xl border border-border bg-background p-5 shadow-2xl backdrop-blur-sm font-mono text-xs flex items-center gap-6">
+        <div className="absolute top-0 left-0 right-0 flex gap-2 p-3 border-b border-border bg-muted/30">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+          <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+        </div>
+
+        <pre className="pt-8 pb-4 text-foreground/85 whitespace-pre-wrap break-words min-h-48 flex-1">
+          <code>{displayedText}</code>
+          {lineIndex < codeLines.length && (
+            <motion.span
+              animate={{ opacity: [1, 0] }}
+              transition={{ duration: 0.8, repeat: Infinity }}
+              className="ml-1 text-primary"
+            >
+              |
+            </motion.span>
+          )}
+        </pre>
+
+        <motion.div
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="shrink-0"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 rounded-full bg-primary/20 blur-lg" />
+            <img
+              src="/appendices/pic12.jpg"
+              alt="Profile"
+              className="relative h-28 w-28 rounded-full border-2 border-primary object-cover"
+            />
+          </div>
+        </motion.div>
+      </div>
+    </div>
   );
 };
 

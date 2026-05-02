@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
+  Book,
   BookOpen,
   Building2,
   CalendarRange,
@@ -23,10 +24,15 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { to: "/", label: "Overview", icon: LayoutDashboard, group: "Portfolio" },
+  { to: "/title", label: "Title Page", icon: Book, group: "Portfolio" },
   { to: "/introduction", label: "Introduction", icon: BookOpen, group: "Portfolio" },
   { to: "/company", label: "Company Profile", icon: Building2, group: "Portfolio" },
-  { to: "/weekly", label: "Weekly Reports", icon: CalendarRange, group: "Work" },
-  { to: "/daily", label: "Daily Logs", icon: ListChecks, group: "Work" },
+
+  { to: "/weekly", label: "Weekly Reports", icon: CalendarRange, group: "Work Experiences" },
+  { to: "/daily", label: "Daily Time Record", icon: ListChecks, group: "Work Experiences" },
+  { to: "/progress", label: "Progress Report", icon: Files, group: "Work Experiences" },
+  { to: "/analysis", label: "Analysis Report", icon: ClipboardCheck, group: "Work Experiences" },
+
   { to: "/assessment", label: "Assessments", icon: ClipboardCheck, group: "Evaluation" },
   { to: "/reflections", label: "Reflections", icon: Sparkles, group: "Evaluation" },
   { to: "/appendices", label: "Appendices", icon: Files, group: "Evaluation" },
@@ -46,30 +52,42 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
 
   const content = (
     <div className="flex h-full flex-col bg-sidebar border-r border-sidebar-border">
-      {/* Brand */}
-      <div className="flex items-center justify-between gap-3 px-6 h-16 border-b border-sidebar-border">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <div className="h-9 w-9 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-serif text-lg shrink-0">
-            e
+      {/* Profile Section */}
+      <div className="flex flex-col items-center gap-3 px-6 py-6 border-b border-sidebar-border">
+        <div className="w-full flex justify-end lg:hidden mb-2">
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-1.5 rounded-md text-sidebar-foreground hover:bg-sidebar-hover"
+            aria-label="Close menu"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+        <img
+          src="/appendices/seminar-1.jpeg"
+          alt={profile.name}
+          className="h-20 w-20 rounded-full object-cover border-2 border-primary"
+        />
+        <div className="text-center">
+          <div className="text-sm font-semibold text-sidebar-active leading-snug">
+            {profile.name}
           </div>
-          <div className="min-w-0">
-            <div className="text-sm font-semibold text-sidebar-active leading-tight truncate">
-              E-Portfolio
-            </div>
-            <div className="text-[11px] text-sidebar-foreground-muted truncate">
-              OJT · CAST
-            </div>
+          <div className="text-xs text-sidebar-foreground-muted mt-1">
+            {profile.studentId}
           </div>
         </div>
-        <button
-          type="button"
-          onClick={onClose}
-          className="lg:hidden -mr-1 p-1.5 rounded-md text-sidebar-foreground hover:bg-sidebar-hover"
-          aria-label="Close menu"
-        >
-          <X className="h-4 w-4" />
-        </button>
       </div>
+
+      {/* Brand */}
+      <button
+        type="button"
+        onClick={onClose}
+        className="lg:hidden ml-auto mr-3 mt-3 p-1.5 rounded-md text-sidebar-foreground hover:bg-sidebar-hover hidden"
+        aria-label="Close menu"
+      >
+        <X className="h-4 w-4" />
+      </button>
 
       {/* Nav */}
       <nav className="flex-1 overflow-y-auto scrollbar-thin px-3 py-5 space-y-6">
@@ -112,21 +130,6 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
           </div>
         ))}
       </nav>
-
-      {/* Footer card */}
-      <div className="border-t border-sidebar-border p-4">
-        <div className="rounded-lg border border-sidebar-border bg-background/60 p-3">
-          <div className="text-[11px] uppercase tracking-wider text-sidebar-foreground-muted mb-1">
-            Trainee
-          </div>
-          <div className="text-sm font-semibold text-sidebar-active leading-snug">
-            {profile.name}
-          </div>
-          <div className="text-xs text-sidebar-foreground-muted mt-0.5">
-            {profile.studentId}
-          </div>
-        </div>
-      </div>
     </div>
   );
 
