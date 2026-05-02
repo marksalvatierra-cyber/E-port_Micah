@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Neutral slate palette - corporate dashboard */
+    --background: 0 0% 100%;
+    --foreground: 222 25% 12%;
+
+    --surface: 210 20% 98.5%;
+    --surface-2: 210 20% 96%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 25% 12%;
+
+    /* Slate accent (no purple/blue dominance) */
+    --primary: 215 28% 17%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 210 16% 93%;
+    --secondary-foreground: 215 28% 17%;
+
+    --muted: 210 16% 95%;
+    --muted-foreground: 215 14% 45%;
+
+    --accent: 215 20% 90%;
+    --accent-foreground: 215 28% 17%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 16% 88%;
+    --border-strong: 215 16% 80%;
+    --input: 215 16% 88%;
+    --ring: 215 28% 17%;
+
+    --radius: 0.625rem;
+
+    /* Sidebar (light) */
+    --sidebar-background: 210 20% 98.5%;
+    --sidebar-foreground: 215 18% 32%;
+    --sidebar-foreground-muted: 215 14% 50%;
+    --sidebar-active: 215 28% 17%;
+    --sidebar-active-foreground: 0 0% 100%;
+    --sidebar-hover: 210 16% 93%;
+    --sidebar-border: 215 16% 88%;
+
+    --shadow-sm: 0 1px 2px 0 hsl(215 25% 15% / 0.04);
+    --shadow-md: 0 4px 12px -2px hsl(215 25% 15% / 0.06), 0 2px 4px -2px hsl(215 25% 15% / 0.04);
+    --shadow-lg: 0 12px 28px -8px hsl(215 25% 15% / 0.10);
+    --shadow-elevated: 0 24px 60px -20px hsl(215 30% 18% / 0.18), 0 2px 6px -2px hsl(215 25% 15% / 0.05);
+
+    /* Restrained accents — no neon */
+    --gradient-mesh:
+      radial-gradient(60% 55% at 12% 8%, hsl(215 50% 88% / 0.55), transparent 60%),
+      radial-gradient(45% 45% at 88% 5%, hsl(28 45% 90% / 0.50), transparent 65%),
+      radial-gradient(40% 40% at 50% 100%, hsl(200 40% 90% / 0.40), transparent 70%);
+    --gradient-text: linear-gradient(135deg, hsl(215 28% 17%) 0%, hsl(215 30% 32%) 55%, hsl(28 22% 42%) 100%);
+
+    --header-height: 4rem;
+    --sidebar-width: 17rem;
+  }
+
+  .dark {
+    --background: 222 25% 8%;
+    --foreground: 210 20% 96%;
+    --card: 222 25% 10%;
+    --card-foreground: 210 20% 96%;
+    --primary: 210 20% 96%;
+    --primary-foreground: 222 25% 8%;
+    --muted: 217 19% 16%;
+    --muted-foreground: 215 14% 65%;
+    --border: 217 19% 18%;
+    --sidebar-background: 222 25% 10%;
+    --sidebar-foreground: 210 14% 75%;
+    --sidebar-active: 210 20% 96%;
+    --sidebar-active-foreground: 222 25% 10%;
+    --sidebar-hover: 217 19% 16%;
+    --sidebar-border: 217 19% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  h1, h2, h3, h4 {
+    @apply tracking-tight text-foreground;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply bg-card border border-border rounded-xl;
+    box-shadow: var(--shadow-sm);
+  }
+  .surface-card-elevated {
+    @apply bg-card border border-border rounded-2xl;
+    box-shadow: var(--shadow-elevated);
+  }
+  .section-label {
+    @apply text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground;
+  }
+  .text-display {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .gradient-mesh {
+    background-image: var(--gradient-mesh);
+  }
+  .grid-dots {
+    background-image: radial-gradient(hsl(215 18% 70% / 0.16) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border-strong)) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border-strong));
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 65%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent);
+  }
+  .mask-radial {
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 75%);
+  }
+}
