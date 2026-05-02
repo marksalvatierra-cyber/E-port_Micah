@@ -4,7 +4,6 @@ import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { Sidebar } from "./Sidebar";
 import { Header } from "./Header";
 import { ParticleBackground } from "./ParticleBackground";
-import { AuroraBackground } from "./AuroraBackground";
 
 export const DashboardLayout = () => {
   const [open, setOpen] = useState(false);
@@ -15,7 +14,6 @@ export const DashboardLayout = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <AuroraBackground />
       <ParticleBackground />
       {showSidebar && <Sidebar open={open} onClose={() => setOpen(false)} />}
 
