@@ -43,7 +43,7 @@ const Appendices = () => (
         <Card className="mt-3 border-primary">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {useMemo(() => [1, 2, 3, 4].map((i) => (
-              <img key={i} src={`/appendices/seminar-${i}.jpeg`} alt={`Seminar ${i}`} className="w-full h-40 object-cover rounded" />
+              <img key={i} src={`/appendices/seminar-${i}.jpeg`} loading="lazy" alt={`Seminar ${i}`} className="w-full h-40 object-cover rounded" />
             )), [])}
           </div>
         </Card>
@@ -56,7 +56,7 @@ const Appendices = () => (
         <Card className="mt-3 border-primary">
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {useMemo(() => Array.from({ length: 42 }, (_, i) => i + 1).map((i) => (
-              <img key={i} src={`/appendices/office-${i}.jpeg`} alt={`Office ${i}`} className="w-full h-36 object-cover rounded" />
+              <img key={i} src={`/appendices/office-${i}.jpeg`} loading="lazy" alt={`Office ${i}`} className="w-full h-36 object-cover rounded" />
             )), [])}
           </div>
         </Card>

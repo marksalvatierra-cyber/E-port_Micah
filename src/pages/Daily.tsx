@@ -1,4 +1,4 @@
-import { Card, SectionHeader } from "@/components/Section";
+ import { Card, SectionHeader } from "@/components/Section";
 import { dailyLogs } from "@/data/portfolio";
 import { Clock } from "lucide-react";
 import { StaggerGroup, StaggerItem } from "@/components/Reveal";

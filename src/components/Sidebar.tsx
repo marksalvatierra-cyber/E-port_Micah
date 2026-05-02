@@ -67,6 +67,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
         <img
           src="/appendices/seminar-1.jpeg"
           alt={profile.name}
+          loading="lazy"
           className="h-20 w-20 rounded-full object-cover border-2 border-primary"
         />
         <div className="text-center">

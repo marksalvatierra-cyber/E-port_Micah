@@ -47,6 +47,7 @@ export const Header = ({ onMenuClick }: HeaderProps) => {
           <img
             src="/appendices/seminar-1.jpeg"
             alt={profile.name}
+            loading="lazy"
             className="h-9 w-9 rounded-full object-cover border border-primary"
           />
         </div>

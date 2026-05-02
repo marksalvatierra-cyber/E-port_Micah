@@ -184,7 +184,7 @@ const AnimatedCode = () => {
         setLineIndex((prev) => prev + 1);
         setDisplayedText((prev) => prev + "\n");
       }
-    }, 30);
+    }, 60);
 
     return () => clearInterval(interval);
   }, [lineIndex]);
@@ -194,7 +194,7 @@ const AnimatedCode = () => {
       <motion.div
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -inset-3 rounded-2xl bg-primary/10 blur-2xl"
+        className="absolute -inset-3 rounded-2xl bg-primary/10 blur-xl"
       />
 
       <div className="relative overflow-hidden rounded-2xl border border-border bg-background p-5 shadow-2xl backdrop-blur-sm font-mono text-xs flex items-center gap-6">
@@ -223,10 +223,11 @@ const AnimatedCode = () => {
           className="shrink-0"
         >
           <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-primary/20 blur-lg" />
+            <div className="absolute inset-0 rounded-full bg-primary/20 blur-md" />
             <img
               src="/appendices/pic12.jpg"
               alt="Profile"
+              loading="lazy"
               className="relative h-28 w-28 rounded-full border-2 border-primary object-cover"
             />
           </div>
