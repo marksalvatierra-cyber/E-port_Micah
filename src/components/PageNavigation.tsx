@@ -16,18 +16,20 @@ const pageOrder = [
 
 interface PageNavigationProps {
   currentPath: string;
+  previousOverride?: { path: string; label: string };
+  nextOverride?: { path: string; label: string };
 }
 
 const buttonClassName =
   "inline-flex min-w-[9.5rem] items-center justify-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted";
 
-export const PageNavigation = ({ currentPath }: PageNavigationProps) => {
+export const PageNavigation = ({ currentPath, previousOverride, nextOverride }: PageNavigationProps) => {
   const currentIndex = pageOrder.findIndex((page) => page.path === currentPath);
 
   if (currentIndex === -1) return null;
 
-  const previous = pageOrder[currentIndex - 1];
-  const next = pageOrder[currentIndex + 1];
+  const previous = previousOverride ?? pageOrder[currentIndex - 1];
+  const next = nextOverride ?? pageOrder[currentIndex + 1];
 
   return (
     <div className="mt-12 flex items-center justify-center gap-4 flex-wrap">

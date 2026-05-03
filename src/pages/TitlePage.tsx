@@ -98,7 +98,10 @@ const TitlePage = () => {
           <PlanCard title="Personal Commitment" items={careerPlan.commitment} />
         </div>
 
-        <PageNavigation currentPath="/title" />
+        <PageNavigation
+          currentPath="/title"
+          previousOverride={{ path: "/", label: "Overview" }}
+        />
       </div>
     </>
   );

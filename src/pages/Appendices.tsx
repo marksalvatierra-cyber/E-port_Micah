@@ -242,7 +242,10 @@ const Appendices = () => {
       </section>
     </div>
 
-    <PageNavigation currentPath="/appendices" />
+    <PageNavigation
+      currentPath="/appendices"
+      nextOverride={{ path: "/", label: "Overview" }}
+    />
 
     </>
   );
