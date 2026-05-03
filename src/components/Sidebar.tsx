@@ -41,9 +41,10 @@ export const navItems: NavItem[] = [
 interface SidebarProps {
   open: boolean;
   onClose: () => void;
+  hideDesktop?: boolean;
 }
 
-export const Sidebar = ({ open, onClose }: SidebarProps) => {
+export const Sidebar = ({ open, onClose, hideDesktop = false }: SidebarProps) => {
   const grouped = navItems.reduce<Record<string, NavItem[]>>((acc, item) => {
     const g = item.group || "Menu";
     (acc[g] ||= []).push(item);
@@ -65,7 +66,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
           </button>
         </div>
         <img
-          src="/appendices/seminar-1.jpeg"
+          src="/appendices/pic12.jpg"
           alt={profile.name}
           loading="lazy"
           className="h-20 w-20 rounded-full object-cover border-2 border-primary"
@@ -156,9 +157,11 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
       </aside>
 
       {/* Desktop fixed */}
-      <aside className="hidden lg:flex fixed inset-y-0 left-0 w-[17rem] z-30">
-        {content}
-      </aside>
+      {!hideDesktop && (
+        <aside className="hidden lg:flex fixed inset-y-0 left-0 w-[17rem] z-30">
+          {content}
+        </aside>
+      )}
     </>
   );
 };

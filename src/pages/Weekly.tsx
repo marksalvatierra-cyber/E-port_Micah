@@ -5,6 +5,7 @@ import { weeklyReports } from "@/data/portfolio";
 import { CheckCircle2, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { StaggerGroup, StaggerItem } from "@/components/Reveal";
+import { PageNavigation } from "@/components/PageNavigation";
 
 const Weekly = () => {
   const [openWeek, setOpenWeek] = useState<number | null>(1);
@@ -93,6 +94,7 @@ const Weekly = () => {
           );
         })}
       </StaggerGroup>
+      <PageNavigation currentPath="/weekly" />
     </>
   );
 };

@@ -1,4 +1,5 @@
 import { Card, CardTitle, SectionHeader } from "@/components/Section";
+import { PageNavigation } from "@/components/PageNavigation";
 import { company } from "@/data/portfolio";
 import caapLogo from "@/assets/caap-logo.jpg";
 import { Calendar, MapPin, Target } from "lucide-react";
@@ -83,6 +84,8 @@ const Company = () => (
         </div>
       </div>
     </Card>
+
+    <PageNavigation currentPath="/company" />
   </>
 );
 

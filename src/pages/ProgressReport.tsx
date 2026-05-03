@@ -1,4 +1,5 @@
 import { Card, CardTitle, SectionHeader } from "@/components/Section";
+import { PageNavigation } from "@/components/PageNavigation";
 
 const ProgressReport = () => (
   <>
@@ -81,6 +82,8 @@ const ProgressReport = () => (
         </table>
       </div>
     </Card>
+
+    <PageNavigation currentPath="/progress" />
   </>
 );
 

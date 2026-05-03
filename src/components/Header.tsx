@@ -45,7 +45,7 @@ export const Header = ({ onMenuClick }: HeaderProps) => {
             <div className="text-[11px] text-muted-foreground">{profile.yearSection} · BSIT</div>
           </div>
           <img
-            src="/appendices/seminar-1.jpeg"
+            src="/appendices/pic12.jpg"
             alt={profile.name}
             loading="lazy"
             className="h-9 w-9 rounded-full object-cover border border-primary"

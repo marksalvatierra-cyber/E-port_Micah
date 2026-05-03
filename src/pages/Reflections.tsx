@@ -1,4 +1,5 @@
 import { Card, CardTitle, SectionHeader } from "@/components/Section";
+import { PageNavigation } from "@/components/PageNavigation";
 import { reflections } from "@/data/portfolio";
 import { StaggerGroup, StaggerItem } from "@/components/Reveal";
 
@@ -23,6 +24,8 @@ const Reflections = () => (
         </StaggerItem>
       ))}
     </StaggerGroup>
+
+    <PageNavigation currentPath="/reflections" />
   </>
 );
 

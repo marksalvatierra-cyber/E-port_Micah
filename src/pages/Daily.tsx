@@ -2,6 +2,7 @@
 import { dailyLogs } from "@/data/portfolio";
 import { Clock } from "lucide-react";
 import { StaggerGroup, StaggerItem } from "@/components/Reveal";
+import { PageNavigation } from "@/components/PageNavigation";
 
 const Daily = () => (
   <>
@@ -64,6 +65,8 @@ const Daily = () => (
     <p className="mt-6 text-xs text-muted-foreground">
       Note: Daily entries shown reflect the records captured in the e-portfolio source. Subsequent days continue the same routine of METAR encoding and ATS support.
     </p>
+
+    <PageNavigation currentPath="/daily" />
   </>
 );
 

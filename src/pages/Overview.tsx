@@ -33,7 +33,7 @@ const Overview = () => {
               <span className="uppercase tracking-[0.14em]">OJT E-Portfolio · 2026</span>
             </div>
 
-            <h1 className="mt-5 font-serif text-display text-4xl sm:text-5xl lg:text-6xl leading-normal tracking-tight">
+            <h1 className="mt-5 pb-1 font-serif text-display text-4xl sm:text-5xl lg:text-6xl leading-[1.12] tracking-tight">
               {profile.name}
             </h1>
 

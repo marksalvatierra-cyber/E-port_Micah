@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Card, CardTitle, SectionHeader } from "@/components/Section";
+import { PageNavigation } from "@/components/PageNavigation";
 import { acknowledgment, careerPlan, introduction, personalPhilosophy, profile, tableOfContents, type TOCItem } from "@/data/portfolio";
 
 const TitlePage = () => {
@@ -97,6 +97,8 @@ const TitlePage = () => {
           <PlanCard title="Long-term Vision" items={careerPlan.longTerm} />
           <PlanCard title="Personal Commitment" items={careerPlan.commitment} />
         </div>
+
+        <PageNavigation currentPath="/title" />
       </div>
     </>
   );

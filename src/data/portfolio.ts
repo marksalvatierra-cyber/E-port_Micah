@@ -809,7 +809,7 @@ export const dailyLogs: DailyLog[] = [
 
 export const assessment = {
   intro:
-    "The Student Internship Evaluation summarizes feedback from the host company supervisors at CAAP San Jose Airport — Air Traffic Service. Performance was evaluated across professionalism, technical aptitude, dependability, and overall workplace contribution.",
+    "Evaluation and Performance Review",
   ratings: [
     { criterion: "Attendance & Punctuality", note: "Consistent early arrival across all 486 hours of training." },
     { criterion: "Quality of Work", note: "Accurate METAR encoding, flight plan handling, and CADAS data entry." },
@@ -819,17 +819,17 @@ export const assessment = {
     { criterion: "Communication", note: "Performed basic Ground-to-Air communication on 118.3 MHz frequency." },
   ],
   remarks:
-    "Demonstrated strong technical aptitude in Air Traffic Service operations and reliable performance in administrative support tasks. Recommended for continued professional development in aviation operations.",
+    "Highly Knowledgeable in Assigned Tasks and always willing to learn new things.",
   numericRatings: {
     SR: 285,
     PR: 285,
-    SICR: 0,
+    SICR: 290,
     ASR: 285,
   },
   signatories: {
     student: { name: "Micah Mel R. Madriaga", date: "April 22, 2026" },
     peer: { name: "Aylene Z. Villanueva", date: "April 22, 2026" },
-    coordinator: { name: "Marites D. Escultor, MSIT", date: "" },
+    coordinator: { name: "Marites D. Escultor, MSIT", date: "April 22, 2026" },
     supervisor: { name: "Delmer M. Palara", date: "April 22, 2026" },
   },
 };
@@ -874,7 +874,7 @@ export const appendices = [
   { code: "J", title: "Daily Time Record (Time Card)" },
   { code: "K", title: "Certificate of Completion" },
   { code: "L", title: "Certificate of Clearance" },
-  { code: "M", title: "Pre-Service Seminar Pictures" },
+  { code: "M", title: "Performance/Proficiency Rating Sheet" },
   { code: "N", title: "Pre-Service Seminar Pictures" },
   { code: "O", title: "Office Works Pictures" },
   { code: "P", title: "Code of Ethics for CAST Student Internship" },

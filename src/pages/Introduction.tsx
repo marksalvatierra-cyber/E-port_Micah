@@ -1,4 +1,5 @@
 import { Card, CardTitle, SectionHeader } from "@/components/Section";
+import { PageNavigation } from "@/components/PageNavigation";
 import { acknowledgment, careerPlan, introduction, personalPhilosophy, profile } from "@/data/portfolio";
 
 const Introduction = () => (
@@ -47,6 +48,8 @@ const Introduction = () => (
         {introduction.timePlace.setting}
       </p>
     </Card>
+
+    <PageNavigation currentPath="/introduction" />
     
   </>
 );

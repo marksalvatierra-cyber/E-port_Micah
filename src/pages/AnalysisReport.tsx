@@ -1,4 +1,5 @@
 import { Card, CardTitle, SectionHeader } from "@/components/Section";
+import { PageNavigation } from "@/components/PageNavigation";
 
 const AnalysisReport = () => (
   <>
@@ -55,6 +56,8 @@ const AnalysisReport = () => (
         </p>
       </div>
     </Card>
+
+    <PageNavigation currentPath="/analysis" />
   </>
 );
 
