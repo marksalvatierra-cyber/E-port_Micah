@@ -822,7 +822,7 @@ export const assessment = {
   numericRatings: {
     SR: 285,
     PR: 285,
-    SICR: 290,
+    SICR: 0,
     ASR: 285,
   },
   signatories: {

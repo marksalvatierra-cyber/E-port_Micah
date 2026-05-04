@@ -23,7 +23,7 @@ const getEquivalentRating = (total: number) => {
 const ratingsOverview = [
   { code: "SR", label: "Student Self-Rating", total: assessment.numericRatings.SR },
   { code: "PR", label: "Peer Rating", total: assessment.numericRatings.PR },
-  { code: "SICR", label: "Student Internship Coordinator Rating", total: sicrComputedTotal },
+  { code: "SICR", label: "Student Internship Coordinator Rating", total: assessment.numericRatings.SICR },
   { code: "ASR", label: "Agency Supervisor Rating", total: assessment.numericRatings.ASR },
 ];
 
@@ -36,7 +36,7 @@ const evaluationPhotos = [
 const overallScore =
   (assessment.numericRatings.SR +
     assessment.numericRatings.PR +
-    sicrComputedTotal +
+    assessment.numericRatings.SICR +
     assessment.numericRatings.ASR) /
   4;
 
@@ -111,9 +111,18 @@ const Assessment = () => (
           <div className="text-sm text-muted-foreground leading-relaxed">
             <p>SR — Student Self-Rating</p>
             <p>PR — Peer Rating</p>
-            <p>SICR — Student Internship Coordinator Rating (computed as 5 x 58 = 290)</p>
+            <p>SICR — Student Internship Coordinator Rating</p>
             <p>ASR — Agency Supervisor Rating</p>
-            <p className="mt-2">Equivalent scale used: 5 (96-100), 4 (91-95), 3 (86-90), 2 (81-85), 1 (75-80).</p>
+            <div className="mt-4 p-3 bg-muted/50 rounded">
+              <p className="font-semibold mb-2">Equivalent Scale:</p>
+              <div className="space-y-1 text-xs">
+                <p>5 — 96-100</p>
+                <p>4 — 91-95</p>
+                <p>3 — 86-90</p>
+                <p>2 — 81-85</p>
+                <p>1 — 75-80</p>
+              </div>
+            </div>
           </div>
         </div>
       </Card>
@@ -125,7 +134,7 @@ const Assessment = () => (
           <div className="text-sm text-muted-foreground">out of 5.00</div>
         </div>
         <div className="mt-3 text-sm text-muted-foreground">
-          Total average across raters: {Math.round(overallScore)} points ({assessment.numericRatings.SR} + {assessment.numericRatings.PR} + {sicrComputedTotal} + {assessment.numericRatings.ASR}) / 4.
+          Total average across raters: {Math.round(overallScore)} points ({assessment.numericRatings.SR} + {assessment.numericRatings.PR} + {assessment.numericRatings.SICR} + {assessment.numericRatings.ASR}) / 4.
         </div>
         <div className="mt-5 text-sm text-foreground/85">
           <div className="font-semibold mb-1">General Comments on Student's Overall Performance</div>
