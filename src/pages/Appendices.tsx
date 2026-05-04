@@ -33,24 +33,6 @@ const appendixPhotoMap: Record<string, string[]> = {
   Q: ["/appendices/Appendix-Q.jpg"]
 };
 
-const appendixTextMap: Record<string, { title: string; body: string; bullets: string[] }> = {
-  C: {
-    title: "Code of Ethics for CAST Student Internship",
-    body: "Official code of ethics that governed student conduct during the internship.",
-    bullets: [
-      "I will do my tasks carefully and give my best effort at all times.",
-      "I will follow the rules and policies of the company or office.",
-      "I will show respect to my supervisor, co-workers, and everyone I work with.",
-      "I will be honest and act with integrity in everything I do.",
-      "I will accept feedback and learn from corrections to improve myself.",
-      "I will avoid any behavior that may cause problems, such as being irresponsible or absent without reason.",
-      "I will work well with others and help maintain a positive working environment.",
-      "I will communicate clearly and politely to my supervisor and employees I work with.",
-      "I will continue learning and improving my skills throughout the internship.",
-    ],
-  },
-};
-
 const getAppendixPhotos = (code: string, title: string) => {
   const files = appendixPhotoMap[code] ?? [];
 
@@ -65,7 +47,6 @@ const Appendices = () => {
 
   const activeAppendix = appendices.find((a) => a.code === activeAppendixCode) ?? null;
   const activePhotos = activeAppendix ? getAppendixPhotos(activeAppendix.code, activeAppendix.title) : [];
-  const activeText = activeAppendixCode ? appendixTextMap[activeAppendixCode] : null;
   const mainAppendices = appendices.filter((a) => !["N", "O", "P", "R"].includes(a.code));
 
   return (
@@ -114,27 +95,6 @@ const Appendices = () => {
         </DialogHeader>
 
         <div className="max-h-[75vh] overflow-y-auto pr-1">
-          {activeText ? (
-            <div className="space-y-4 text-sm text-foreground/85 leading-relaxed">
-              <div>
-                <div className="font-semibold text-foreground">{activeText.title}</div>
-                <div className="text-muted-foreground mt-1">{activeText.body}</div>
-              </div>
-              <div className="rounded-lg border border-border bg-card/40 p-4">
-                <div className="font-semibold mb-3">College of Arts, Sciences, and Technology</div>
-                <div className="font-semibold mb-3">Student Internship Code of Ethics</div>
-                <div className="font-medium mb-2">Preamble:</div>
-                <p className="mb-3">
-                  I will serve employees to perform my duties with integrity, to follow all established rules and procedures, respect employees and maintain confidentiality, and contribute to the safety, security, and efficiency of aviation operations at all times. I will do my responsibilities and I will follow the rules by these means:
-                </p>
-                <ul className="list-disc pl-5 space-y-2">
-                  {activeText.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ) : null}
           <div
             className={
               activePhotos.length <= 2

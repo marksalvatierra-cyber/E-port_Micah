@@ -8,7 +8,6 @@ export const profile = {
   yearSection: "4-G",
   period: "Jan 29, 2026 – April 21, 2026",
   company: "Civil Aviation Authority of the Philippines",
-  unit: "CAAP San Jose Airport — Air Traffic Service",
   coordinator: "Marites D. Escultor, MSIT",
   totalHours: 486,
   college: "College of Arts, Science, and Technology",

@@ -31,7 +31,7 @@ const TitlePage = () => {
                   <StudentInfoField label="Student ID" value={profile.studentId} />
                   <StudentInfoField label="Course & Year" value={`${profile.course}, ${profile.yearSection}`} />
                   <StudentInfoField label="Institution" value={profile.college} />
-                  <StudentInfoField label="Host Company" value={`${profile.company} — ${profile.unit}`} />
+                  <StudentInfoField label="Host Company" value={profile.company} />
                   <StudentInfoField label="OJT Coordinator" value={profile.coordinator} />
                 </div>
               </div>
