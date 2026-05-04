@@ -144,7 +144,7 @@ const Assessment = () => (
           <div><strong>Rated by:</strong></div>
           <div>Student Intern: {assessment.signatories.student.name} — {assessment.signatories.student.date}</div>
           <div>Peer: {assessment.signatories.peer.name} — {assessment.signatories.peer.date}</div>
-          <div>Student Internship Coordinator: {assessment.signatories.coordinator.name} — {assessment.signatories.coordinator.date}</div>
+          <div>Student Internship Coordinator: {assessment.signatories.coordinator.name}</div>
           <div>Agency Supervisor: {assessment.signatories.supervisor.name} — {assessment.signatories.supervisor.date}</div>
         </div>
       </Card>

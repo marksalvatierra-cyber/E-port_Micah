@@ -44,6 +44,8 @@ const getAppendixPhotos = (code: string, title: string) => {
 
 const Appendices = () => {
   const [activeAppendixCode, setActiveAppendixCode] = useState<string | null>(null);
+  const [imageModalSrc, setImageModalSrc] = useState<string | null>(null);
+  const [imageModalAlt, setImageModalAlt] = useState<string | null>(null);
 
   const activeAppendix = appendices.find((a) => a.code === activeAppendixCode) ?? null;
   const activePhotos = activeAppendix ? getAppendixPhotos(activeAppendix.code, activeAppendix.title) : [];
@@ -125,6 +127,16 @@ const Appendices = () => {
       </DialogContent>
     </Dialog>
 
+    <Dialog open={Boolean(imageModalSrc)} onOpenChange={(open) => !open && (setImageModalSrc(null), setImageModalAlt(null))}>
+      <DialogContent className="max-w-3xl w-[95vw]">
+        <div className="w-full flex flex-col items-center">
+          {imageModalSrc ? (
+            <img src={imageModalSrc} alt={imageModalAlt ?? ""} className="w-full max-h-[80vh] object-contain rounded" />
+          ) : null}
+        </div>
+      </DialogContent>
+    </Dialog>
+
     <div className="mt-8 space-y-6">
       <section id="appendix-n">
         <div className="section-label">Appendix N</div>
@@ -141,7 +153,11 @@ const Appendices = () => {
                 src={src}
                 loading="lazy"
                 alt={`Appendix N ${index + 1}`}
-                className="w-full h-40 object-cover rounded"
+                className="w-full h-40 object-cover rounded cursor-pointer"
+                onClick={() => {
+                  setImageModalSrc(src);
+                  setImageModalAlt(`Appendix N ${index + 1}`);
+                }}
               />
             ))}
           </div>
@@ -154,7 +170,17 @@ const Appendices = () => {
         <Card className="mt-3 border-primary">
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {useMemo(() => Array.from({ length: 13 }, (_, i) => i + 1).map((i) => (
-              <img key={i} src={`/appendices/Appendix-O${i}.jpg`} loading="lazy" alt={`Appendix O ${i}`} className="w-full h-36 object-cover rounded" />
+              <img
+                key={i}
+                src={`/appendices/Appendix-O${i}.jpg`}
+                loading="lazy"
+                alt={`Appendix O ${i}`}
+                className="w-full h-36 object-cover rounded cursor-pointer"
+                onClick={() => {
+                  setImageModalSrc(`/appendices/Appendix-O${i}.jpg`);
+                  setImageModalAlt(`Appendix O ${i}`);
+                }}
+              />
             )), [])}
           </div>
         </Card>
