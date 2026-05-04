@@ -28,7 +28,9 @@ const appendixPhotoMap: Record<string, string[]> = {
   G: ["/appendices/Appendix-G.jpg"],
   H: ["/appendices/Appendix-H.jpg"],
   I: ["/appendices/Appendix-I1.jpg", "/appendices/Appendix-I2.jpg"],
+  J: ["/appendices/Appendix-J1.jpg", "/appendices/Appendix-J2.jpg", "/appendices/Appendix-J3.jpg", "/appendices/Appendix-J4.jpg"],
   K: ["/appendices/Appendix-K.jpg"],
+  L: ["/appendices/Appendix-L.jpg"],
   N: ["/appendices/Appendix-N1.jpg", "/appendices/Appendix-N2.jpg", "/appendices/Appendix-N3.jpg"],
   Q: ["/appendices/Appendix-Q.jpg"]
 };
